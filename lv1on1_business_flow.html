@@ -1,0 +1,293 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>LV 1on1 業務フロー図</title>
+<style>
+*,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
+body{font-family:-apple-system,'Hiragino Sans','Noto Sans JP',sans-serif;background:#F2F1EE;padding:20px;color:#1C1C1E}
+.wrap{max-width:760px;margin:0 auto}
+h1{font-size:17px;font-weight:700;color:#0F1B35;margin-bottom:16px;padding-bottom:10px;border-bottom:1px solid #E0DDD8}
+.phase-tabs{display:flex;gap:6px;margin-bottom:16px}
+.tab{flex:1;padding:8px 4px;border-radius:8px;font-size:12px;font-weight:700;text-align:center;cursor:pointer;border:1.5px solid transparent;transition:all .15s;font-family:inherit}
+.tab.all   {background:#F1EFE8;color:#5F5E5A;border-color:#F1EFE8}
+.tab.purple{background:#EEEDFE;color:#3C3489;border-color:#EEEDFE}
+.tab.teal  {background:#E1F5EE;color:#085041;border-color:#E1F5EE}
+.tab.coral {background:#FAECE7;color:#712B13;border-color:#FAECE7}
+.tab.active.all   {border-color:#5F5E5A}
+.tab.active.purple{border-color:#534AB7}
+.tab.active.teal  {border-color:#0F6E56}
+.tab.active.coral {border-color:#993C1D}
+.card{background:#fff;border-radius:16px;padding:20px;box-shadow:0 2px 8px rgba(0,0,0,.06)}
+svg{display:block;width:100%}
+.footer{margin-top:16px;font-size:11px;color:#AEADB5;text-align:center}
+</style>
+</head>
+<body>
+<div class="wrap">
+  <h1>LV 1on1 日程調整アプリ — 業務フロー図</h1>
+  <div class="phase-tabs">
+    <div class="tab all active" onclick="show('all')">全体フロー</div>
+    <div class="tab purple"    onclick="show('admin')">管理者</div>
+    <div class="tab teal"      onclick="show('coach')">コーチ</div>
+    <div class="tab coral"     onclick="show('client')">クライアント</div>
+  </div>
+
+  <div class="card">
+
+    <!-- ===== 全体フロー ===== -->
+    <div id="view-all">
+<svg viewBox="0 0 680 720">
+<defs><marker id="ar" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="6" markerHeight="6" orient="auto-start-reverse"><path d="M2 1L8 5L2 9" fill="none" stroke="context-stroke" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></marker></defs>
+
+<!-- 列ヘッダ -->
+<rect x="30"  y="14" width="180" height="30" rx="6" fill="#EEEDFE"/>
+<text font-size="14" font-weight="500" font-family="-apple-system,sans-serif" x="120" y="34" text-anchor="middle" fill="#3C3489">管理者</text>
+<rect x="250" y="14" width="180" height="30" rx="6" fill="#E1F5EE"/>
+<text font-size="14" font-weight="500" font-family="-apple-system,sans-serif" x="340" y="34" text-anchor="middle" fill="#085041">コーチ</text>
+<rect x="470" y="14" width="180" height="30" rx="6" fill="#FAECE7"/>
+<text font-size="14" font-weight="500" font-family="-apple-system,sans-serif" x="560" y="34" text-anchor="middle" fill="#712B13">クライアント</text>
+
+<!-- フェーズ仕切り線 -->
+<line x1="20" y1="64"  x2="660" y2="64"  stroke="#C8C5BC" stroke-width="0.5" stroke-dasharray="4,3"/>
+<line x1="20" y1="194" x2="660" y2="194" stroke="#C8C5BC" stroke-width="0.5" stroke-dasharray="4,3"/>
+<line x1="20" y1="318" x2="660" y2="318" stroke="#C8C5BC" stroke-width="0.5" stroke-dasharray="4,3"/>
+<line x1="20" y1="448" x2="660" y2="448" stroke="#C8C5BC" stroke-width="0.5" stroke-dasharray="4,3"/>
+<line x1="20" y1="568" x2="660" y2="568" stroke="#C8C5BC" stroke-width="0.5" stroke-dasharray="4,3"/>
+
+<!-- フェーズラベル -->
+<text font-size="11" font-family="-apple-system,sans-serif" x="14" y="80"  fill="#AEADB5">Ph1</text>
+<text font-size="11" font-family="-apple-system,sans-serif" x="14" y="210" fill="#AEADB5">Ph2</text>
+<text font-size="11" font-family="-apple-system,sans-serif" x="14" y="334" fill="#AEADB5">Ph3</text>
+<text font-size="11" font-family="-apple-system,sans-serif" x="14" y="464" fill="#AEADB5">Ph4</text>
+<text font-size="11" font-family="-apple-system,sans-serif" x="14" y="584" fill="#AEADB5">Ph5</text>
+
+<!-- Ph1: 管理者 イベント作成 -->
+<rect x="40" y="70" width="160" height="44" rx="8" fill="#EEEDFE" stroke="#534AB7" stroke-width="0.5"/>
+<text font-size="13" font-weight="600" font-family="-apple-system,sans-serif" x="120" y="87" text-anchor="middle" fill="#3C3489">イベント作成</text>
+<text font-size="11" font-family="-apple-system,sans-serif" x="120" y="103" text-anchor="middle" fill="#534AB7">期間・人数を設定</text>
+<!-- Ph1: 管理者 枠生成 -->
+<rect x="40" y="134" width="160" height="44" rx="8" fill="#EEEDFE" stroke="#534AB7" stroke-width="0.5"/>
+<text font-size="13" font-weight="600" font-family="-apple-system,sans-serif" x="120" y="151" text-anchor="middle" fill="#3C3489">枠を生成</text>
+<text font-size="11" font-family="-apple-system,sans-serif" x="120" y="167" text-anchor="middle" fill="#534AB7">ボタン1クリック</text>
+<line x1="120" y1="114" x2="120" y2="132" stroke="#888780" stroke-width="1" marker-end="url(#ar)"/>
+
+<!-- Ph1→Ph2 URL送信 -->
+<line x1="200" y1="156" x2="258" y2="212" stroke="#0F6E56" stroke-width="1" marker-end="url(#ar)"/>
+<text font-size="11" font-family="-apple-system,sans-serif" x="218" y="192" fill="#0F6E56">URL送信</text>
+
+<!-- Ph2: コーチ 対応日程入力 -->
+<rect x="260" y="202" width="160" height="44" rx="8" fill="#E1F5EE" stroke="#0F6E56" stroke-width="0.5"/>
+<text font-size="13" font-weight="600" font-family="-apple-system,sans-serif" x="340" y="219" text-anchor="middle" fill="#085041">対応日程を入力</text>
+<text font-size="11" font-family="-apple-system,sans-serif" x="340" y="235" text-anchor="middle" fill="#0F6E56">CoachApp.html</text>
+<!-- Ph2: 全員完了確認 -->
+<rect x="260" y="264" width="160" height="44" rx="8" fill="#F1EFE8" stroke="#888780" stroke-width="0.5"/>
+<text font-size="13" font-weight="600" font-family="-apple-system,sans-serif" x="340" y="281" text-anchor="middle" fill="#444441">全員入力完了?</text>
+<text font-size="11" font-family="-apple-system,sans-serif" x="340" y="297" text-anchor="middle" fill="#5F5E5A">管理者が確認</text>
+<line x1="340" y1="246" x2="340" y2="262" stroke="#888780" stroke-width="1" marker-end="url(#ar)"/>
+<!-- NO→催促 -->
+<line x1="260" y1="286" x2="202" y2="286" stroke="#B4B2A9" stroke-width="1" marker-end="url(#ar)"/>
+<text font-size="11" font-family="-apple-system,sans-serif" x="228" y="280" fill="#888780">NO→催促</text>
+<!-- YES矢印 -->
+<line x1="340" y1="308" x2="340" y2="326" stroke="#888780" stroke-width="1" marker-end="url(#ar)"/>
+<text font-size="11" font-family="-apple-system,sans-serif" x="348" y="320" fill="#888780">YES</text>
+
+<!-- Ph3: 管理者 枠確定・公開 -->
+<rect x="40" y="326" width="160" height="44" rx="8" fill="#EEEDFE" stroke="#534AB7" stroke-width="0.5"/>
+<text font-size="13" font-weight="600" font-family="-apple-system,sans-serif" x="120" y="343" text-anchor="middle" fill="#3C3489">枠を確定・公開</text>
+<text font-size="11" font-family="-apple-system,sans-serif" x="120" y="359" text-anchor="middle" fill="#534AB7">必要数に絞り込み</text>
+<!-- Ph3→クライアント URL送信 -->
+<line x1="200" y1="348" x2="468" y2="348" stroke="#D85A30" stroke-width="1" marker-end="url(#ar)"/>
+<text font-size="11" font-family="-apple-system,sans-serif" x="334" y="342" text-anchor="middle" fill="#D85A30">URL送信</text>
+
+<!-- Ph4: クライアント 予約 -->
+<rect x="480" y="326" width="160" height="44" rx="8" fill="#FAECE7" stroke="#993C1D" stroke-width="0.5"/>
+<text font-size="13" font-weight="600" font-family="-apple-system,sans-serif" x="560" y="343" text-anchor="middle" fill="#712B13">希望日程を予約</text>
+<text font-size="11" font-family="-apple-system,sans-serif" x="560" y="359" text-anchor="middle" fill="#993C1D">ClientApp.html</text>
+<line x1="560" y1="370" x2="560" y2="456" stroke="#888780" stroke-width="1" marker-end="url(#ar)"/>
+
+<!-- Ph4: コーチ確認 -->
+<rect x="260" y="406" width="160" height="44" rx="8" fill="#E1F5EE" stroke="#0F6E56" stroke-width="0.5"/>
+<text font-size="13" font-weight="600" font-family="-apple-system,sans-serif" x="340" y="423" text-anchor="middle" fill="#085041">予約状況を確認</text>
+<text font-size="11" font-family="-apple-system,sans-serif" x="340" y="439" text-anchor="middle" fill="#0F6E56">管理者から共有</text>
+<line x1="120" y1="370" x2="120" y2="396" stroke="#888780" stroke-width="1"/>
+<line x1="120" y1="396" x2="258" y2="428" stroke="#888780" stroke-width="1" marker-end="url(#ar)"/>
+<line x1="340" y1="450" x2="340" y2="456" stroke="#888780" stroke-width="1" marker-end="url(#ar)"/>
+
+<!-- Ph5: 管理者 最終調整 -->
+<rect x="40" y="456" width="160" height="44" rx="8" fill="#EEEDFE" stroke="#534AB7" stroke-width="0.5"/>
+<text font-size="13" font-weight="600" font-family="-apple-system,sans-serif" x="120" y="473" text-anchor="middle" fill="#3C3489">最終調整</text>
+<text font-size="11" font-family="-apple-system,sans-serif" x="120" y="489" text-anchor="middle" fill="#534AB7">変更・キャンセル対応</text>
+<!-- Ph5: コーチ 確定通知 -->
+<rect x="260" y="456" width="160" height="44" rx="8" fill="#E1F5EE" stroke="#0F6E56" stroke-width="0.5"/>
+<text font-size="13" font-weight="600" font-family="-apple-system,sans-serif" x="340" y="473" text-anchor="middle" fill="#085041">確定通知を受取</text>
+<text font-size="11" font-family="-apple-system,sans-serif" x="340" y="489" text-anchor="middle" fill="#0F6E56">Zoom情報付きメール</text>
+<!-- Ph5: クライアント 確定通知 -->
+<rect x="480" y="456" width="160" height="44" rx="8" fill="#FAECE7" stroke="#993C1D" stroke-width="0.5"/>
+<text font-size="13" font-weight="600" font-family="-apple-system,sans-serif" x="560" y="473" text-anchor="middle" fill="#712B13">確定通知を受取</text>
+<text font-size="11" font-family="-apple-system,sans-serif" x="560" y="489" text-anchor="middle" fill="#993C1D">Zoom情報付きメール</text>
+
+<!-- Ph5 → 出力 -->
+<line x1="120" y1="500" x2="120" y2="536" stroke="#888780" stroke-width="1" marker-end="url(#ar)"/>
+<line x1="340" y1="500" x2="340" y2="536" stroke="#888780" stroke-width="1" marker-end="url(#ar)"/>
+<line x1="560" y1="500" x2="560" y2="536" stroke="#888780" stroke-width="1" marker-end="url(#ar)"/>
+
+<!-- 出力 -->
+<rect x="40"  y="536" width="160" height="44" rx="8" fill="#EAF3DE" stroke="#3B6D11" stroke-width="0.5"/>
+<text font-size="13" font-weight="600" font-family="-apple-system,sans-serif" x="120" y="553" text-anchor="middle" fill="#27500A">スケジュール出力</text>
+<text font-size="11" font-family="-apple-system,sans-serif" x="120" y="569" text-anchor="middle" fill="#3B6D11">従来フォーマット</text>
+<rect x="260" y="536" width="160" height="44" rx="8" fill="#EAF3DE" stroke="#3B6D11" stroke-width="0.5"/>
+<text font-size="13" font-weight="600" font-family="-apple-system,sans-serif" x="340" y="553" text-anchor="middle" fill="#27500A">セッション実施</text>
+<text font-size="11" font-family="-apple-system,sans-serif" x="340" y="569" text-anchor="middle" fill="#3B6D11">Zoom URLで接続</text>
+<rect x="480" y="536" width="160" height="44" rx="8" fill="#EAF3DE" stroke="#3B6D11" stroke-width="0.5"/>
+<text font-size="13" font-weight="600" font-family="-apple-system,sans-serif" x="560" y="553" text-anchor="middle" fill="#27500A">セッション受講</text>
+<text font-size="11" font-family="-apple-system,sans-serif" x="560" y="569" text-anchor="middle" fill="#3B6D11">Zoom URLで接続</text>
+
+<!-- 変更ループ -->
+<line x1="40"  y1="478" x2="22" y2="478" stroke="#B4B2A9" stroke-width="0.8" fill="none"/>
+<line x1="22"  y1="478" x2="22" y2="348" stroke="#B4B2A9" stroke-width="0.8" fill="none"/>
+<line x1="22"  y1="348" x2="38" y2="348" stroke="#B4B2A9" stroke-width="0.8" marker-end="url(#ar)"/>
+<text font-size="11" font-family="-apple-system,sans-serif" x="10" y="416" fill="#B4B2A9" text-anchor="middle">変更</text>
+
+<!-- ログ自動記録 -->
+<rect x="200" y="600" width="280" height="32" rx="6" fill="none" stroke="#B4B2A9" stroke-dasharray="4,3" stroke-width="0.8"/>
+<text font-size="11" font-family="-apple-system,sans-serif" x="340" y="619" text-anchor="middle" fill="#888780">全操作 → ログシートに自動記録（AI連携用）</text>
+</svg>
+    </div>
+
+    <!-- ===== 管理者フロー ===== -->
+    <div id="view-admin" style="display:none">
+<svg viewBox="0 0 680 600">
+<defs><marker id="ar2" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="6" markerHeight="6" orient="auto-start-reverse"><path d="M2 1L8 5L2 9" fill="none" stroke="context-stroke" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></marker></defs>
+<text font-size="15" font-weight="700" font-family="-apple-system,sans-serif" x="340" y="28" text-anchor="middle" fill="#0F1B35">管理者の操作フロー</text>
+<rect x="240" y="44" width="200" height="44" rx="8" fill="#EEEDFE" stroke="#534AB7" stroke-width="0.5"/>
+<text font-size="13" font-weight="600" font-family="-apple-system,sans-serif" x="340" y="61" text-anchor="middle" fill="#3C3489">① イベント名・期間を入力</text>
+<text font-size="11" font-family="-apple-system,sans-serif" x="340" y="77" text-anchor="middle" fill="#534AB7">クライアント人数も設定</text>
+<line x1="340" y1="88" x2="340" y2="108" stroke="#888780" stroke-width="1" marker-end="url(#ar2)"/>
+<rect x="240" y="108" width="200" height="44" rx="8" fill="#EEEDFE" stroke="#534AB7" stroke-width="0.5"/>
+<text font-size="13" font-weight="600" font-family="-apple-system,sans-serif" x="340" y="125" text-anchor="middle" fill="#3C3489">② 枠を生成ボタン</text>
+<text font-size="11" font-family="-apple-system,sans-serif" x="340" y="141" text-anchor="middle" fill="#534AB7">75分×必要数を自動計算</text>
+<line x1="340" y1="152" x2="340" y2="172" stroke="#888780" stroke-width="1" marker-end="url(#ar2)"/>
+<rect x="240" y="172" width="200" height="44" rx="8" fill="#EEEDFE" stroke="#534AB7" stroke-width="0.5"/>
+<text font-size="13" font-weight="600" font-family="-apple-system,sans-serif" x="340" y="189" text-anchor="middle" fill="#3C3489">③ コーチ入力URLを発行</text>
+<text font-size="11" font-family="-apple-system,sans-serif" x="340" y="205" text-anchor="middle" fill="#534AB7">コーチ全員にメール送信</text>
+<line x1="340" y1="216" x2="340" y2="236" stroke="#888780" stroke-width="1" marker-end="url(#ar2)"/>
+<rect x="240" y="236" width="200" height="44" rx="8" fill="#F1EFE8" stroke="#888780" stroke-width="0.5"/>
+<text font-size="13" font-weight="600" font-family="-apple-system,sans-serif" x="340" y="253" text-anchor="middle" fill="#444441">入力率を確認</text>
+<text font-size="11" font-family="-apple-system,sans-serif" x="340" y="269" text-anchor="middle" fill="#5F5E5A">管理者画面に進捗表示</text>
+<!-- 催促ループ -->
+<line x1="240" y1="258" x2="182" y2="258" stroke="#B4B2A9" stroke-width="0.8"/>
+<line x1="182" y1="258" x2="182" y2="202" stroke="#B4B2A9" stroke-width="0.8"/>
+<line x1="182" y1="202" x2="238" y2="202" stroke="#B4B2A9" stroke-width="0.8" marker-end="url(#ar2)"/>
+<text font-size="11" font-family="-apple-system,sans-serif" x="158" y="234" text-anchor="middle" fill="#888780">催促</text>
+<line x1="340" y1="280" x2="340" y2="300" stroke="#888780" stroke-width="1" marker-end="url(#ar2)"/>
+<rect x="240" y="300" width="200" height="44" rx="8" fill="#EEEDFE" stroke="#534AB7" stroke-width="0.5"/>
+<text font-size="13" font-weight="600" font-family="-apple-system,sans-serif" x="340" y="317" text-anchor="middle" fill="#3C3489">④ 枠を確定・公開</text>
+<text font-size="11" font-family="-apple-system,sans-serif" x="340" y="333" text-anchor="middle" fill="#534AB7">クライアントURLを発行</text>
+<line x1="340" y1="344" x2="340" y2="364" stroke="#888780" stroke-width="1" marker-end="url(#ar2)"/>
+<rect x="240" y="364" width="200" height="44" rx="8" fill="#F1EFE8" stroke="#888780" stroke-width="0.5"/>
+<text font-size="13" font-weight="600" font-family="-apple-system,sans-serif" x="340" y="381" text-anchor="middle" fill="#444441">予約率を確認</text>
+<text font-size="11" font-family="-apple-system,sans-serif" x="340" y="397" text-anchor="middle" fill="#5F5E5A">残枠数・進捗を監視</text>
+<line x1="340" y1="408" x2="340" y2="428" stroke="#888780" stroke-width="1" marker-end="url(#ar2)"/>
+<rect x="240" y="428" width="200" height="44" rx="8" fill="#EEEDFE" stroke="#534AB7" stroke-width="0.5"/>
+<text font-size="13" font-weight="600" font-family="-apple-system,sans-serif" x="340" y="445" text-anchor="middle" fill="#3C3489">⑤ 最終調整・確定</text>
+<text font-size="11" font-family="-apple-system,sans-serif" x="340" y="461" text-anchor="middle" fill="#534AB7">変更・キャンセル対応</text>
+<line x1="340" y1="472" x2="340" y2="492" stroke="#888780" stroke-width="1" marker-end="url(#ar2)"/>
+<rect x="240" y="492" width="200" height="44" rx="8" fill="#EAF3DE" stroke="#3B6D11" stroke-width="0.5"/>
+<text font-size="13" font-weight="600" font-family="-apple-system,sans-serif" x="340" y="509" text-anchor="middle" fill="#27500A">スケジュール出力</text>
+<text font-size="11" font-family="-apple-system,sans-serif" x="340" y="525" text-anchor="middle" fill="#3B6D11">従来フォーマットで完成</text>
+<!-- 変更ループ -->
+<line x1="440" y1="450" x2="498" y2="450" stroke="#B4B2A9" stroke-width="0.8"/>
+<line x1="498" y1="450" x2="498" y2="322" stroke="#B4B2A9" stroke-width="0.8"/>
+<line x1="498" y1="322" x2="442" y2="322" stroke="#B4B2A9" stroke-width="0.8" marker-end="url(#ar2)"/>
+<text font-size="11" font-family="-apple-system,sans-serif" x="516" y="390" text-anchor="middle" fill="#888780">変更対応</text>
+</svg>
+    </div>
+
+    <!-- ===== コーチフロー ===== -->
+    <div id="view-coach" style="display:none">
+<svg viewBox="0 0 680 460">
+<defs><marker id="ar3" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="6" markerHeight="6" orient="auto-start-reverse"><path d="M2 1L8 5L2 9" fill="none" stroke="context-stroke" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></marker></defs>
+<text font-size="15" font-weight="700" font-family="-apple-system,sans-serif" x="340" y="28" text-anchor="middle" fill="#0F1B35">コーチの操作フロー</text>
+<rect x="240" y="44" width="200" height="44" rx="8" fill="#F1EFE8" stroke="#888780" stroke-width="0.5"/>
+<text font-size="13" font-weight="600" font-family="-apple-system,sans-serif" x="340" y="61" text-anchor="middle" fill="#444441">管理者からURLを受取</text>
+<text font-size="11" font-family="-apple-system,sans-serif" x="340" y="77" text-anchor="middle" fill="#5F5E5A">メールのリンクを開く</text>
+<line x1="340" y1="88" x2="340" y2="108" stroke="#888780" stroke-width="1" marker-end="url(#ar3)"/>
+<rect x="240" y="108" width="200" height="44" rx="8" fill="#E1F5EE" stroke="#0F6E56" stroke-width="0.5"/>
+<text font-size="13" font-weight="600" font-family="-apple-system,sans-serif" x="340" y="125" text-anchor="middle" fill="#085041">名前を選択</text>
+<text font-size="11" font-family="-apple-system,sans-serif" x="340" y="141" text-anchor="middle" fill="#0F6E56">プルダウンから選ぶ</text>
+<line x1="340" y1="152" x2="340" y2="172" stroke="#888780" stroke-width="1" marker-end="url(#ar3)"/>
+<rect x="240" y="172" width="200" height="44" rx="8" fill="#E1F5EE" stroke="#0F6E56" stroke-width="0.5"/>
+<text font-size="13" font-weight="600" font-family="-apple-system,sans-serif" x="340" y="189" text-anchor="middle" fill="#085041">対応可能な日程を選択</text>
+<text font-size="11" font-family="-apple-system,sans-serif" x="340" y="205" text-anchor="middle" fill="#0F6E56">日付・時刻を入力</text>
+<line x1="340" y1="216" x2="340" y2="236" stroke="#888780" stroke-width="1" marker-end="url(#ar3)"/>
+<rect x="240" y="236" width="200" height="44" rx="8" fill="#E1F5EE" stroke="#0F6E56" stroke-width="0.5"/>
+<text font-size="13" font-weight="600" font-family="-apple-system,sans-serif" x="340" y="253" text-anchor="middle" fill="#085041">送信ボタンを押す</text>
+<text font-size="11" font-family="-apple-system,sans-serif" x="340" y="269" text-anchor="middle" fill="#0F6E56">完了画面が表示される</text>
+<line x1="340" y1="280" x2="340" y2="300" stroke="#888780" stroke-width="1" marker-end="url(#ar3)"/>
+<rect x="240" y="300" width="200" height="44" rx="8" fill="#F1EFE8" stroke="#888780" stroke-width="0.5"/>
+<text font-size="13" font-weight="600" font-family="-apple-system,sans-serif" x="340" y="317" text-anchor="middle" fill="#444441">確定通知を待つ</text>
+<text font-size="11" font-family="-apple-system,sans-serif" x="340" y="333" text-anchor="middle" fill="#5F5E5A">管理者が公開後に届く</text>
+<line x1="340" y1="344" x2="340" y2="364" stroke="#888780" stroke-width="1" marker-end="url(#ar3)"/>
+<rect x="240" y="364" width="200" height="44" rx="8" fill="#EAF3DE" stroke="#3B6D11" stroke-width="0.5"/>
+<text font-size="13" font-weight="600" font-family="-apple-system,sans-serif" x="340" y="381" text-anchor="middle" fill="#27500A">Zoom URLで接続</text>
+<text font-size="11" font-family="-apple-system,sans-serif" x="340" y="397" text-anchor="middle" fill="#3B6D11">メール記載のURLから</text>
+</svg>
+    </div>
+
+    <!-- ===== クライアントフロー ===== -->
+    <div id="view-client" style="display:none">
+<svg viewBox="0 0 680 480">
+<defs><marker id="ar4" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="6" markerHeight="6" orient="auto-start-reverse"><path d="M2 1L8 5L2 9" fill="none" stroke="context-stroke" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></marker></defs>
+<text font-size="15" font-weight="700" font-family="-apple-system,sans-serif" x="340" y="28" text-anchor="middle" fill="#0F1B35">クライアントの操作フロー</text>
+<rect x="240" y="44" width="200" height="44" rx="8" fill="#F1EFE8" stroke="#888780" stroke-width="0.5"/>
+<text font-size="13" font-weight="600" font-family="-apple-system,sans-serif" x="340" y="61" text-anchor="middle" fill="#444441">管理者からURLを受取</text>
+<text font-size="11" font-family="-apple-system,sans-serif" x="340" y="77" text-anchor="middle" fill="#5F5E5A">メールのリンクを開く</text>
+<line x1="340" y1="88" x2="340" y2="108" stroke="#888780" stroke-width="1" marker-end="url(#ar4)"/>
+<rect x="240" y="108" width="200" height="44" rx="8" fill="#FAECE7" stroke="#993C1D" stroke-width="0.5"/>
+<text font-size="13" font-weight="600" font-family="-apple-system,sans-serif" x="340" y="125" text-anchor="middle" fill="#712B13">空き枠の一覧を確認</text>
+<text font-size="11" font-family="-apple-system,sans-serif" x="340" y="141" text-anchor="middle" fill="#993C1D">日時・コーチ名が表示</text>
+<line x1="340" y1="152" x2="340" y2="172" stroke="#888780" stroke-width="1" marker-end="url(#ar4)"/>
+<rect x="240" y="172" width="200" height="44" rx="8" fill="#FAECE7" stroke="#993C1D" stroke-width="0.5"/>
+<text font-size="13" font-weight="600" font-family="-apple-system,sans-serif" x="340" y="189" text-anchor="middle" fill="#712B13">希望の枠を1つ選ぶ</text>
+<text font-size="11" font-family="-apple-system,sans-serif" x="340" y="205" text-anchor="middle" fill="#993C1D">選択後すぐにロック</text>
+<line x1="340" y1="216" x2="340" y2="236" stroke="#888780" stroke-width="1" marker-end="url(#ar4)"/>
+<rect x="240" y="236" width="200" height="44" rx="8" fill="#FAECE7" stroke="#993C1D" stroke-width="0.5"/>
+<text font-size="13" font-weight="600" font-family="-apple-system,sans-serif" x="340" y="253" text-anchor="middle" fill="#712B13">名前・メールを入力</text>
+<text font-size="11" font-family="-apple-system,sans-serif" x="340" y="269" text-anchor="middle" fill="#993C1D">送信で予約完了</text>
+<line x1="340" y1="280" x2="340" y2="300" stroke="#888780" stroke-width="1" marker-end="url(#ar4)"/>
+<rect x="240" y="300" width="200" height="44" rx="8" fill="#F1EFE8" stroke="#888780" stroke-width="0.5"/>
+<text font-size="13" font-weight="600" font-family="-apple-system,sans-serif" x="340" y="317" text-anchor="middle" fill="#444441">確定メールを受取</text>
+<text font-size="11" font-family="-apple-system,sans-serif" x="340" y="333" text-anchor="middle" fill="#5F5E5A">Zoom情報が届く</text>
+<line x1="340" y1="344" x2="340" y2="364" stroke="#888780" stroke-width="1" marker-end="url(#ar4)"/>
+<rect x="240" y="364" width="200" height="44" rx="8" fill="#EAF3DE" stroke="#3B6D11" stroke-width="0.5"/>
+<text font-size="13" font-weight="600" font-family="-apple-system,sans-serif" x="340" y="381" text-anchor="middle" fill="#27500A">Zoom URLで接続</text>
+<text font-size="11" font-family="-apple-system,sans-serif" x="340" y="397" text-anchor="middle" fill="#3B6D11">1on1セッション開始</text>
+<!-- 変更は管理者経由ループ -->
+<line x1="240" y1="258" x2="170" y2="258" stroke="#B4B2A9" stroke-width="0.8"/>
+<line x1="170" y1="258" x2="170" y2="130" stroke="#B4B2A9" stroke-width="0.8"/>
+<line x1="170" y1="130" x2="238" y2="130" stroke="#B4B2A9" stroke-width="0.8" marker-end="url(#ar4)"/>
+<text font-size="11" font-family="-apple-system,sans-serif" x="138" y="200" text-anchor="middle" fill="#888780">変更は</text>
+<text font-size="11" font-family="-apple-system,sans-serif" x="138" y="214" text-anchor="middle" fill="#888780">管理者経由</text>
+</svg>
+    </div>
+
+  </div>
+
+  <div class="footer">LV 1on1 日程調整アプリ — 業務フロー図 v1.0 &nbsp;|&nbsp; © 2026 Toshihisa Nakamura</div>
+</div>
+
+<script>
+function show(role) {
+  ['all','admin','coach','client'].forEach(function(r) {
+    document.getElementById('view-'+r).style.display = (r===role) ? 'block' : 'none';
+  });
+  document.querySelectorAll('.tab').forEach(function(t) {
+    t.classList.remove('active');
+    if (t.getAttribute('onclick') === "show('"+role+"')") t.classList.add('active');
+  });
+}
+</script>
+</body>
+</html>
